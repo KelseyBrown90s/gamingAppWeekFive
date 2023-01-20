@@ -58,10 +58,10 @@ class GamingCatalog{
             alert('Goodbye!');
         }
           ShowMainMenuOptions(){
-            return prompt(" 0)exit 1) create new gamingcatalog 2) view gamingcatalog 3) delete gamingcatalog 4) display all gamingcatalogs");
+            return prompt(" 0)exit"+"\n"+" 1) create new gamingcatalog" + "\n"+"2) view gamingcatalog"+"\n"+" 3) delete gamingcatalog"+"\n"+" 4) display all gamingcatalogs");
           }
            showGamingCatalogMenuOptions(gamingcatalogInfo){
-                return prompt (" 0) back 1) create game 2)delete game -------- ${gamingcatalogInfo}");
+                return prompt (" 0) back +"\n"+"1) create game"+ "2)delete game -------- ${gamingcatalogInfo}");
           }
           displayGamingCatalogs() {
             let gamingcatalogString = '';
