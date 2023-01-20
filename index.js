@@ -1,0 +1,99 @@
+class Game {
+    constructor(name,story){
+        this.name=name;
+        this.story=story;
+    }
+    describe(){
+        return '${this.name} is best described as ${this.story}';
+    }
+}
+
+class GamingCatalog{
+    constructor(name){
+        this.name=name;
+        this.games=[];
+    }
+    addGame(game){
+        if(game instanceof Game ){
+            this.games.push(game);
+        }else{
+            throw new Error(' You can only add an instance of a game. Arguement is not a game: ${game}');
+        }
+    }
+
+    describe(){
+        return '${this.name} has ${this.games.length} games.'; 
+    }
+}
+
+    class Menu {
+        constructor(){
+         this.GamingCatalog=[];
+         // (This is to indicate their will be multiple of these thus being GamingCatalogs).
+         this.selectedGamingCatalog = null;
+        }
+        start(){
+            let selection = this.ShowMainMenuOptions();
+            while(selection != 0){
+                switch(selection){
+                    case '1' :
+                        this.createGamingCatalog();
+                        break;
+                    case '2' :
+                        this.viewGamingCatalog();
+                        break;
+                    case '3' :
+                        this.deleteGamingCatalog();
+                        break;
+                    case '4' :
+                        this.displayGamingCatalogs();
+                        break;
+                    default:
+                        selection = 0 ;
+
+
+                }
+                selection = this.ShowMainMenuOptions();
+            } 
+            alert('Goodbye!');
+        }
+          ShowMainMenuOptions(){
+            return prompt(" 0)exit 1) create new gamingcatalog 2) view gamingcatalog 3) delete gamingcatalog 4) display all gamingcatalogs");
+          }
+           showGamingCatalogMenuOptions(gamingcatalogInfo){
+                return prompt (" 0) back 1) create game 2)delete game -------- ${gamingcatalogInfo}");
+          }
+          displayGamingCatalogs() {
+            let gamingcatalogString = '';
+            for(let i=0;i < this.gamingcatologs.length;i++){
+                 gamingcatalogString += i + ')' + gamingcatalogs[i].name + '\n';
+            }
+            alert(gamingcatalogString);
+          }
+          createGamingCatalog(){
+            let name = prompt(' Enter name for new gamingcatalog:');
+            this.gamingcatalogs.push(new GamingCatalog(name));
+          }
+          viewGamingCatalog(){
+            let index = prompt('Enter the index of the gaming catalog you wish to view:');
+            if(index > -1 && index < this.gamingcatalogs.length){
+                this.selectedGamingCatalog = this.GamingCatalogs[index];
+                let description = 'GamingCatalog Name:' + this.selectedGamingCatalog.name + '\n';
+                for(let i = 0; i < this.selectedGamingCatalog.games.length;i++){
+                    description += i + ')' + this.selectedGamingCatalog.games[i].name + ' - ' + this.selectedGamingCatalog.games[i].story + '\n';
+
+                }
+                let selection = this.ShowGamingCatalogMenuOptions(description);
+                switch(selection){
+                    case '1':
+                        this.createGame();
+                        break;
+                    case '2':
+                        this.deleteGame();
+                }
+            }
+          }
+    }
+
+    let menu = new Menu();
+    menu.start();
