@@ -93,6 +93,24 @@ class GamingCatalog{
                 }
             }
           }
+        deleteGamingCatalog(){
+            let index = prompt('Enter the index of the GamingCatalog you wish to delete:');
+            if(index > -1 && index < this.gamingcatalogs.length){
+                this.gamingcatalogs.splice(index,1);
+            }
+        }
+        createGame(){
+            let name = prompt('Enter name for new game:');
+            let story = prompt('Enter story for new game');
+            this.selectedGamingCatalog.games.push(new Game(name,story));
+          }
+          deleteGame(){
+            let index = prompt('Enter the index of the game you wish to delete:');
+            if(index > -1 && index < this.selectedGamingCatalog.games.length ){
+               this.selectedGamingCatalog.games.splice(index,1);
+            }
+          }
+        
     }
 
     let menu = new Menu();
