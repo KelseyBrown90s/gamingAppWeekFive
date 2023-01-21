@@ -58,10 +58,10 @@ class GamingCatalog{
             alert('Goodbye!');
         }
           ShowMainMenuOptions(){
-            return prompt(" 0)exit  1) create new gamingcatalog 2) view gamingcatalog  3) delete gamingcatalog  4) display all gamingcatalogs");
+            return prompt('0)exit  1) create new gamingcatalog 2) view gamingcatalog  3) delete gamingcatalog  4) display all gamingcatalogs');
           }
            showGamingCatalogMenuOptions(gamingcatalogInfo){
-                return prompt (" 0) back 1) create game 2)delete game -------- ${gamingcatalogInfo}");
+                return prompt ('0) back 1) create game 2)delete game -------- ${gamingcatalogInfo}');
                //I was having issues with separating both prompts by new lines, so I decided to keep all options one 1 line.
           }
           displayGamingCatalogs() {
