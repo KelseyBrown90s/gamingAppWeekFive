@@ -60,24 +60,24 @@ class GamingCatalog{
           ShowMainMenuOptions(){
             return prompt('0)exit  1) create new gamingcatalog 2) view gamingcatalog  3) delete gamingcatalog  4) display all gamingcatalogs');
           }
-           showGamingCatalogMenuOptions(gamingcatalogInfo){
+           showGamingCatalogMenuOptions(GamingCatalogInfo){
                 return prompt ('0) back 1) create game 2)delete game -------- ${gamingcatalogInfo}');
                //I was having issues with separating both prompts by new lines, so I decided to keep all options one 1 line.
           }
           displayGamingCatalogs() {
-            let gamingcatalogString = '';
-            for(let i=0;i < this.gamingcatologs.length;i++){
-                 gamingcatalogString += i + ')' + gamingcatalogs[i].name + '\n';
+            let GamingCatalogString = '';
+            for(let i=0;i < this.GamingCatologs.length;i++){
+                 GamingCatalogString += i + ')' + GamingCatalogs[i].name + '\n';
             }
-            alert(gamingcatalogString);
+            alert(GamingCatalogString);
           }
           createGamingCatalog(){
             let name = prompt(' Enter name for new gamingcatalog:');
-            this.gamingcatalogs.push(new GamingCatalog(name));
+            this.GamingCatalogs.push(new GamingCatalog(name));
           }
           viewGamingCatalog(){
             let index = prompt('Enter the index of the gaming catalog you wish to view:');
-            if(index > -1 && index < this.gamingcatalogs.length){
+            if(index > -1 && index < this.GamingCatalogs.length){
                 this.selectedGamingCatalog = this.GamingCatalogs[index];
                 let description = 'GamingCatalog Name:' + this.selectedGamingCatalog.name + '\n';
                 for(let i = 0; i < this.selectedGamingCatalog.games.length;i++){
@@ -96,8 +96,8 @@ class GamingCatalog{
           }
         deleteGamingCatalog(){
             let index = prompt('Enter the index of the GamingCatalog you wish to delete:');
-            if(index > -1 && index < this.gamingcatalogs.length){
-                this.gamingcatalogs.splice(index,1);
+            if(index > -1 && index < this.GamingCatalogs.length){
+                this.GamingCatalogs.splice(index,1);
             }
         }
         createGame(){
