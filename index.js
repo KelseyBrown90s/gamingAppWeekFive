@@ -28,7 +28,7 @@ class GamingCatalog{
 
     class Menu {
         constructor(){
-         this.GamingCatalog=[];
+         this.gamingcatalogs=[];
          // (This is to indicate their will be multiple of these thus being GamingCatalogs).
          this.selectedGamingCatalog = null;
         }
@@ -65,20 +65,20 @@ class GamingCatalog{
                //I was having issues with separating both prompts by new lines, so I decided to keep all options one 1 line.
           }
           displayGamingCatalogs() {
-            let GamingCatalogString = '';
-            for(let i=0;i < this.GamingCatologs.length;i++){
-                 GamingCatalogString += i + ')' + GamingCatalogs[i].name + '\n';
+            let gamingcatalogString = '';
+            for(let i=0;i < this.gamingcatologs.length;i++){
+                 gamingcatalogString += i + ')' + this.gamingcatalogs[i].name + '\n';
             }
-            alert(GamingCatalogString);
+            alert(gamingcatalogString);
           }
           createGamingCatalog(){
             let name = prompt(' Enter name for new gamingcatalog:');
-            this.GamingCatalogs.push(new GamingCatalog(name));
+            this.gamingcatalogs.push(new GamingCatalog(name));
           }
           viewGamingCatalog(){
             let index = prompt('Enter the index of the gaming catalog you wish to view:');
-            if(index > -1 && index < this.GamingCatalogs.length){
-                this.selectedGamingCatalog = this.GamingCatalogs[index];
+            if(index > -1 && index < this.gamingcatalogs.length){
+                this.selectedGamingCatalog = this.gamingcatalogs[index];
                 let description = 'GamingCatalog Name:' + this.selectedGamingCatalog.name + '\n';
                 for(let i = 0; i < this.selectedGamingCatalog.games.length;i++){
                     description += i + ')' + this.selectedGamingCatalog.games[i].name + ' - ' + this.selectedGamingCatalog.games[i].story + '\n';
